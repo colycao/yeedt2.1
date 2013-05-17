@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>填写翻译信息</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/function.js"></script>
+
+</head>
+
+<bodys>
+<form name="form1" onsubmit="return check();" method="post" action="?job=confirm">
+<div class="y_list">
+	<div class="y_info_tra">
+		<div class="tit">完善个人信息（以下信息用于邮寄发票使用）</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="10%">发票抬头：</td>
+					<td width="90%">
+						<input type="text" placeholder="请填写发票抬头" name="title" id="title" value="$f_title" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td valign="top">收件人：</td>
+					<td>
+						<input type="text" name="username" id="username" value="$f_username" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td>收件地址：</td>
+					<td>
+						<input type="text" name="address" id="address" value="$f_address" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td>公司名称：</td>
+					<td>
+						<input type="text" name="company" id="company" value="$f_company" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td>邮箱：</td>
+					<td>
+						<input type="text" name="email" id="email" value="$f_email" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td>手机：</td>
+					<td>
+						<input type="text" name="phone" id="phone" value="$f_phone" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td>固定电话：</td>
+					<td>
+						<input type="text" name="tel" id="tel" value="$f_tel" class="cont_text" />
+					</td>				
+				</tr>
+			</table>
+			<div class="y_info_btns">
+			<input class="submit" type='submit' name='submit' value='提 交'>
+		</div>
+	</div>
+</div>
+
+
+ </form>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/function.js"></script>
+</head>
+
+<bodys>
+<div class="y_list">
+	<div class="y_list_cont">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <thead>
+			  <tr>
+			    <th>序号</th>
+			    <th>消息内容</th>
+			    <th>消息时间</th>
+			    <th>消息状态</th>
+			    <th>翻译状态</th>
+			    <th>操作</th>		    
+			  </tr>
+		  </thead>
+		  <tbody>
+<!--
+EOT;
+foreach($rsdb as $rs)
+{
+print <<<EOT
+-->		  			  
+			  <tr>
+			    <td>$rs[msg_id]</td>
+			    <td align="left">$rs[msg]</td>
+			    <td>$rs[posttime]</td>
+			    <td>
+<!--
+EOT;
+if($rs[is_read] =='0')
+{
+print <<<EOT
+-->
+	<span style="color: red">未读，<a href="?job=is_read&msg_id=$rs[msg_id]">点击设置已读</a></span>
+ <!--
+EOT;
+}
+else
+{
+print <<<EOT
+-->
+	<span style="color:green;">已读</span>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</td>
+			    <td>
+<!--
+EOT;
+if($rs[type] =='finish')
+{
+print <<<EOT
+-->
+	<span style="color: green">翻译完成</span>
+ <!--
+EOT;
+}
+else if($rs[type] =='paid')
+{
+print <<<EOT
+-->
+	<span style="color:fuchsia;">已支付，翻译中</span>
+
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</td>
+			    <td><div class="btns"><a href="?job=delete&msg_id=$rs[msg_id]" onclick="return confirm('删除数据无法恢复！')" class="btn_del">删除</a></div></td>
+			  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->			   
+		  </tbody>
+		</table>
+		<div class="y_list_page">
+			$pagehtml
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

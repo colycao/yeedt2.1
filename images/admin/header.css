@@ -1,0 +1,54 @@
+body { text-align:center; margin:0; padding:0; background:#FFF; font-size:12px; color:#333; font-family: "Microsoft YaHei", Arial, Sans-Serif; }
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin:0; padding:0; border:0; }
+ul, li { list-style-type:none; }
+img { vertical-align:top; border:0; }
+strong { font-weight:normal; }
+em { font-style:normal; }
+h1, h2, h3, h4, h5, h6 { margin:0; padding:0; font-size:12px; font-weight:normal; }
+textarea { overflow:auto; }
+cite { float:right; font-style:normal; }
+a:link { color: #333; text-decoration:none; }
+a:hover { color: #134d9d; text-decoration:underline; }
+a:active { color: #103d7c; }
+a:visited { color: #333; text-decoration:none; }
+.area { margin:0 auto; width:100%; clear:both; }
+.area .col1 { float:left; width:169px; overflow:hidden; }
+.area .col2 { float:right; width:100%; overflow:hidden; }
+.header { margin:0 auto; width:100%; min-width:1000px; height:75px; clear:both; background:#1d4288 url(head_bg.jpg) no-repeat right center; }
+.header { _width:expression((document.documentElement.clientWidth||document.body.clientWidth)<990?"990px":"100%");
+}
+.header .logo { float:left; width:185px; height:50px; position:relative; top:30px; display:inline; background:url(logo.png) no-repeat center top }
+.header .version { font-family:"Consolas"; float:left; width:60px; height:25px; text-align:left; color:#efefef; margin-top:45px; font-size:14px; font-weight:600; padding-left:5px; }
+.header .headTxt { width:auto; min-width:760px; color:#efefef; font-size:14px; text-align:right; }
+.header .headTxt h1 { height:33px; line-height:33px; text-align:right; padding-right:12px; font-family:Arial, Helvetica, sans-serif }
+.header .headTxt h1 font { color:#efefef; padding-right:12px; font-size:12px; }
+.header .headTxt .commonActions { width:760px; height:42px; line-height:35px; text-align:right; float:right; padding-right:12px; overflow:hidden; }
+.header .headTxt .commonActions h2 a { float:right; display:block; height:40px; padding-left:36px; padding-right:5px; line-height:35px; color: #efefef }
+#one { background:url(hexin.png) no-repeat left top; }
+#two { background:url(broom.png) no-repeat left top; }
+#three { background:url(hdd.png) no-repeat left top; }
+#four { background:url(earth.png) no-repeat left top; }
+#five { background:url(text.png) no-repeat left top; }
+.header .headTxt h1 a { color: #efefef; }
+.header .headTxt h1 a:hover { color: #efefef; text-decoration:underline; }
+.globalNav { float:left; width:100%; height:42px; clear:both; background:url(globalNav_right.png) repeat-x; }
+.globalNav h1 { float:left; width:220px; height:42px; line-height:42px; text-align:left; padding:0 0 0 38px; background:url(globalNav_left.png) no-repeat; }
+.globalNav h1 a { text-indent:-9999px; display:block; }
+.globalNav h1 div { width:120px; overflow:hidden; }
+.globalNav ul { float:left; margin-top:6px; }
+.globalNav ul li { float:left; margin:0 2px; width:71px; height:36px; line-height:36px; color:#666; background:url(nav_link.gif) no-repeat; }
+.globalNav ul li.s1 { float:left; width:71px; height:36px; line-height:36px; color:#134d9d; font-weight:600; background:url(nav_visited.gif) no-repeat; }
+.globalNav ul li a:hover { padding:10px 11px 13px; *padding:10px 11px 13px;
+_padding:11px 11px 12px; background:url(nav_hover.gif) no-repeat; text-decoration:none; white-space:nowrap; overflow:hidden }
+.globalNav ul li.s1 a:hover { text-decoration:none; background:none; padding:0; }
+/*map*/
+#Desktop { margin-top:5px; padding:0 9px; }
+.hostinfo h1 { border-bottom:3px #097dd2 solid; line-height:22px; ; padding-left:40px; font-size:14px; background:url(left_menu_head.gif) no-repeat left top; color:#fff; }
+.hostinfo { width:100%; text-align:left; }
+.hostinfo ul { list-style:none; padding:10px; }
+.hostinfo ul li { line-height:22px; border-bottom:1px solid #f3f2f2; background:url(dian.gif) no-repeat left center; padding-left:12px; }
+.hostinfo ul li a { color:green }
+#topbanner { background:#fff url(banner.jpg) no-repeat center center; height:258px; text-align:right; position:relative }
+#topbanner .webinfo { width:250px; position:absolute; border:2px solid #249ae4; background:#f3f5f6; right:10px; top:10px }
+#topbanner .webinfo span { color:red }
+#topbanner .webinfo div { margin:4px 0; }

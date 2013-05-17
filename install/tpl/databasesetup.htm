@@ -1,0 +1,54 @@
+<!--<?php
+echo <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+
+<body>
+<div id="jsheit">
+<div class="contenttext databasesetup round">
+<p style="font-size:14px;">检查您的数据库设置情况，请在相应栏目仔细输入配置内容。</p>
+    <form method="post" action="">
+    <input name="setup" type="hidden" value="1">
+	 <input name="db_type" type="hidden" value="mysql">
+	  <fieldset style="padding-bottom:0px;">
+	  <legend><strong>数据库信息</strong></legend>
+        <div class="section1">
+		  <p>数据库主机</p>
+		  <input type="text" class="text" name="db_host" value="localhost" size="18" />
+		  
+		</div>
+		<div class="section1">
+		  <p>数据库名 </p>
+		 <input type="text" name="db_name" class="text" size="18" />
+		  
+		</div>
+		<div class="section1">
+		  <p>数据库用户名</p>
+		  <input type="text" class="text" name="db_username" value="root" size="18" />
+		</div>
+		<div class="section1" style="margin-bottom:0px;">
+		  <p>数据库密码</p>
+		  <input type="password" class="text" name="db_pass" />
+		</div>
+		
+		<div class="section1" style="margin-bottom:0px;">
+		  <p>客户注册链接</p>
+		  <input type="text" class="text" name="reg_url" />
+		</div>
+	
+		<div style="padding:8px 0px 8px 80px;">
+		
+		</div>
+      </fieldset>
+	  <div style="text-align:center; margin-top:5px;">
+	  <input type="submit" name="submit" class="submit" tabindex="15" value="保存数据库设置并继续" />
+	 </div>
+    </form>
+</div>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>-->

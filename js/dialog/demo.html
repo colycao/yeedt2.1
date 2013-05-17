@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+<script src="artDialog.js?skin=default"></script>
+<script src="artDialog.iframeTools.js"></script>
+
+
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+<!--
+art.dialog({
+    id: 'testID',
+    content: 'hello world!',
+    button: [
+        {
+            name: '同意',
+            callback: function () {
+                this.content('你同意了').time(2);
+                return false;
+            },
+            focus: true
+        },
+        {
+            name: '不同意',
+            callback: function () {
+                alert('你不同意')
+            }
+        },
+        {
+            name: '无效按钮',
+            disabled: true
+        },
+        {
+            name: '关闭我'
+        }
+    ]
+});
+//-->
+</script>
+
+</body>
+
+</html>

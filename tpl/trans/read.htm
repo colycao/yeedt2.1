@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>翻译详情</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/dialog/artDialog.js?skin=default"></script>
+<script src="js/dialog/artDialog.iframeTools.js"></script>
+<script>
+function showConfirm(id)
+{
+	art.dialog({
+	    content: '已跳转至支付平台支付<br />支付成功后点击确认付款',
+	    icon: 'warning',
+	    noText: '遇到问题',
+	    yesText: '支付成功',
+	    yesFn: function () {
+	    	window.location='trans.php?job=getPayStatus&id='+id;
+	        return true;
+	    },
+	    noFn: function () {
+	    	window.location='trans.php?job=getPayStatus&id='+id;
+	        return true;
+	    },
+	});
+}
+
+</script>
+</head>
+<bodys>
+<div class="y_list">
+	<div class="y_info_tra">
+		<div class="tit">查看翻译详情</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!--
+EOT;
+if($rsdb[yeedt_order_id] !='')
+{
+print <<<EOT
+-->
+				<tr>
+					<td width="10%">订单编号：</td>
+					<td width="90%">
+						$rsdb[yeedt_order_id]
+					</td>				
+				</tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->			
+				
+				<tr>
+					<td valign="top">语言方向：</td>
+					<td>
+						 $rsdb[languages]
+					</td>				
+				</tr>
+				<tr>
+					<td>翻译级别：</td>
+					<td>
+						 $rsdb[qualityLevels]
+					</td>				
+				</tr>
+				<tr>
+					<td>字数：</td>
+					<td>
+						 $rsdb[wordCount] 字
+					</td>				
+				</tr>
+				<tr>
+					<td>翻译费用：</td>
+					<td>
+						$rsdb[price] 元
+					</td>				
+				</tr>
+				
+				<tr>
+					<td>主题：</td>
+					<td>$rsdb[title]
+<!--
+EOT;
+if($rsdb[author] =='file')
+{
+print <<<EOT
+-->	
+		<a href="$requestUrl/user/download?orderId=$rsdb[yeedt_order_id]" target="_blank">下载原文</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+					</td>				
+				</tr>
+				
+				
+				<tr>
+					<td>外文主题：</td>
+					<td>
+						  $rsdb[en_title]
+<!--
+EOT;
+if($rsdb[author] =='file'&&$rsdb[en_title]!="")
+{
+print <<<EOT
+-->	
+		<a href="$requestUrl/user/downloadTDocument?orderId=$rsdb[yeedt_order_id]" target="_blank">下载译文</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->						  
+					</td>				
+				</tr>
+<!--
+EOT;
+if($rsdb[author] !='file')
+{
+print <<<EOT
+-->				
+				
+				<tr>
+					<td>内容：</td>
+					<td>
+						 $rsdb[content]
+					</td>				
+				</tr>
+				
+				<tr>
+					<td>外文内容：</td>
+					<td>
+						$rsdb[en_content]
+					</td>				
+				</tr>
+				
+<!--
+EOT;
+}
+print <<<EOT
+-->					
+				<tr>
+					<td></td>
+					<td align="center">
+					<div class="y_info_btns">
+					<a href="javascript:history.go(-1);" class='submit'>返回</a>
+			
+<!--
+EOT;
+if($rsdb[status] =='new'||$rsdb[status] =='')
+{
+	if($rsdb[author] !='file')
+	{
+print <<<EOT
+-->
+	<a href="?job=pay&id=$rsdb[id]" class='submit' target="_parent _blank" onclick="showConfirm('$rsdb[id]')">点击支付</a>
+<!--
+EOT;
+	}
+	else
+	{
+print <<<EOT
+-->	
+	<a href="?job=filePay&id=$rsdb[id]" class='submit' target="_parent _blank" onclick="showConfirm('$rsdb[id]')">点击支付</a>
+<!--
+EOT;
+	}
+}
+print <<<EOT
+-->			
+					</div>
+					</td>				
+				</tr>
+			</table>
+			
+	</div>
+</div>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

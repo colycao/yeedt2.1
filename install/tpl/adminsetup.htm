@@ -1,0 +1,54 @@
+<!--<?php
+echo <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+
+<body>
+<div id="jsheit">
+<div class="contenttext adminsetup round">
+<p style="font-size:14px;">请设置译点通账户，该账户用于翻译时的用户鉴定。 </p>
+    <form method="post" action="" name="adminsetup">
+     <input name="setup" type="hidden" value="1">
+	 <input name="cndata" type="hidden" value="$cndata" />
+	 <input name="endata" type="hidden" value="$endata" />
+	 <input name="showdata" type="hidden" value="$showdata" />
+	 <input name="se360" type="hidden" value="111111111" />
+	  <fieldset>
+	  <legend><strong>译点通用户信息</strong></legend>
+		<div class="section1">
+		  <p>译点通账号</p>
+		  <input type="text" class="text" name="yeedt_id" />
+		  <span>输入译点通账号，如果没有账户<a href="$reg_url" target="_blank">点击这里获取</a></span>
+		</div>
+		<div class="section1">
+		  <p>译点通密码</p>
+		  <input type="password" class="text" name="yeedt_key" />
+		  <span>输入译点通密码</span>
+		</div>
+		<div class="section1">
+		  <p>手机号码</p>
+		  <input type="text" class="text" name="tel" />
+		  <span>可以即时联系到您</span>
+		</div>
+		<div class="section1">
+		  <p>电子邮件</p>
+		  <input type="text" class="text" name="email" />
+		  <span>请务必填写正确，以便当忘记密码时找回</span>
+		</div>
+		<div class="section1">
+		  <p>代理商回调地址</p>
+		  <input type="text" class="text" name="proxy_url" />
+		  <span>代理商需要记录信息，请填写数据回调地址</span>
+		</div>
+	  </fieldset>
+
+	  <p align="center" style="margin-top:5px;"><input type="submit" name="submit" class="submit" value="保存管理设置" onclick="return adminsubmit()" /></p>
+    </form>
+
+</div>
+</div>
+</body></html>
+<!--
+EOT;
+?>-->

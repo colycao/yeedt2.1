@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>填写翻译信息</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/function.js"></script>
+<script>
+function check()
+{
+	if(document.getElementById('content').value=="")
+	{
+		alert('请填写您需要翻译的内容');
+		return false;
+	}
+	if(document.getElementById('start_lan_p').innerHTML=="请选择")
+	{
+		alert('请选择您需要翻译的语言');
+		return false;
+	}
+	if(document.getElementById('qualityLevelsselect_p').innerHTML=="请选择")
+	{
+		alert('请选择您需要翻译的级别');
+		return false;
+	}
+}
+function showSelect(id)
+{
+	if(document.getElementById(id).style.display=='block')
+	{
+		document.getElementById(id).style.display='none';
+	}
+	else
+	{
+		document.getElementById(id).style.display='block';
+	}
+}
+function tc(start_lan_p,start_lan_k,v,ulid)
+{
+	document.getElementById(start_lan_p).innerHTML=v;
+	document.getElementById(ulid).style.display='none';
+	document.getElementById(start_lan_k).checked=true;
+}
+</script>
+</head>
+
+<body>
+<form name="form1" onsubmit="return check();" method="post" action="?job=confirm">
+<div class="y_list">
+	<div class="y_info_tra">
+		<div style="background-color: #2394E2;height: 30px; ">
+			<ul style="background-color: #2394E2;">
+				<li style="width: 120px; height: 30px; text-align:center;background-color: #FFFFFF; font-size:14px; ; line-height: 30px; float: left; ">
+					<a href="?job=trans" style="color:#000000">文本翻译</a></li>
+				<li style="width: 120px; height: 30px; text-align:center;background-color: #2394E2;font-size:14px; ; line-height: 30px; float: left;"><a style="color:#FFFFFF" href="?job=file">文档翻译</a></li>
+			</ul>
+		</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>选择语言</td>
+					<td>
+					<div class="yuzhongselect">
+						<p onclick="showSelect('startlanulselect')" id='start_lan_p'>请选择</p>
+    	<ul class="ulselect" id="startlanulselect" style="z-index: 9">
+<!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<li id='' onclick="tc('start_lan_p','start_lan_$key','$rs','startlanulselect')">$rs</li>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div>
+						
+       <div style="display: none;">
+ <!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<input type="radio" value="$key"  name='translateLanguages' id='start_lan_$key' />$rs<br>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	
+
+<!--
+EOT;
+foreach($qualityLevels as $key=>$rs)
+{
+print <<<EOT
+-->        	
+        	<input type="radio" value="$key"  name='qualityLevels' id='qualityLevelsselect_$key' />$rs
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+  </div>
+					</td>				
+				</tr>
+				<tr>
+					<td>翻译级别</td>
+					<td>
+					
+					<div class="yuzhongselect" style="float: left;">
+						<p onclick="showSelect('qualityLevelsselect')" id='qualityLevelsselect_p'>请选择</p>
+    	<ul class="ulselect" id="qualityLevelsselect" style="z-index: 9">
+        
+<!--
+EOT;
+foreach($qualityLevels as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<li id='' onclick="tc('qualityLevelsselect_p','qualityLevelsselect_$key','$rs','qualityLevelsselect')">$rs</li>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div> <div style="float: left; line-height: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help.php">翻译级别说明</a></div>
+						
+					</td>				
+				</tr>
+				<tr>
+					<td width="10%">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</td>
+					<td width="90%">
+							<input type="text" name="title" id="title" class="cont_text"  value="标题可不填" onfocus="if(this.value=='标题可不填'){this.value='';}"  onblur="if(this.value==''){this.value='标题可不填';}"   />
+						
+					</td>				
+				</tr>
+				<tr>
+					<td valign="top">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</td>
+					<td><textarea  style="width:710px; height:200px; border:solid 1px #e0e0e0; background:#f2f2f2;  " name="content" id="content" onKeyDown="gbcount(this.form.content,this.form.total,this.form.used,this.form.remain);" onKeyUp="gbcount(this.form.content,this.form.total,this.form.used,this.form.remain);"></textarea>
+					              <p>最多字数：
+					                <input disabled maxLength="4" name="total" size="3" value="3000" >
+					                已用字数：
+					                <input disabled maxLength="4" name="used" size="3" value="0" >
+					                剩余字数：
+					                <input disabled maxLength="4" name="remain" size="3" value="3000">
+					            </td>
+									
+				</tr>
+				
+			</table>
+			<div class="y_info_btns">
+			<input class="submit" type='submit' name='Submit' value='提 交'>
+       	    <input type='hidden' name='id' value='$id'></div>
+		</div>
+		<br /><br /><br /><br />
+	</div>
+</div>
+ </form>
+
+ <SCRIPT language="javascript">
+ <!--
+ function checktext(text)
+ {
+    allValid = true;
+    for (i = 0; i < text.length; i++)
+    {
+     if (text.charAt(i) != " ")
+     {
+      allValid = false;
+      break;
+     }
+    }
+ return allValid;
+ }
+ function gbcount(message,total,used,remain)
+ {
+ 	var max;
+ 	max = total.value;
+ 	if (message.value.length > max) {
+ 	message.value = message.value.substring(0,max);
+ 	used.value = max;
+ 	remain.value = 0;
+ 	alert("翻译内容不能超过 30000 个字!");
+ }
+ else {
+ 	used.value = message.value.length;
+ 	remain.value = max - used.value;
+ }
+ }
+ -->
+ </script>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

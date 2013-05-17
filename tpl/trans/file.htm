@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>填写翻译信息</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/function.js"></script>
+<script>
+function check()
+{
+	if(document.getElementById('start_lan_p').innerHTML=="请选择")
+	{
+		alert('请选择您需要翻译的语言');
+		return false;
+	}
+	if(document.getElementById('FileForm_document').value=="")
+	{
+		alert('请上传您需要翻译的文档');
+		return false;
+	}
+	
+   var input = document.getElementById("submit");
+   input.disabled = 'disabled';
+   
+}
+function showSelect(id)
+{
+	if(document.getElementById(id).style.display=='block')
+	{
+		document.getElementById(id).style.display='none';
+	}
+	else
+	{
+		document.getElementById(id).style.display='block';
+	}
+}
+function tc(start_lan_p,start_lan_k,v,ulid)
+{
+	document.getElementById(start_lan_p).innerHTML=v;
+	document.getElementById(ulid).style.display='none';
+	document.getElementById(start_lan_k).checked=true;
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+<form name="form1" onsubmit="return check();" method="post" action="$requestUrl/file" enctype="multipart/form-data">
+<input type="hidden"  name="FileForm[document_form_source]" value="webTrans" />
+<input type="hidden"  name="FileForm[yeedt_id]" value="$yeedt_id" />
+<input type="hidden"  name="FileForm[yeedt_key]" value="$yeedt_key" />
+<input type="hidden"  name="FileForm[agents_callback_url]" value="$proxyUrl" />
+<input type="hidden"  name="FileForm[member_callback_url]" value="$returnUrl/fileRequest.php" />
+<div class="y_list">
+	<div class="y_info_tra">
+		<div style="background-color: #2394E2;height: 30px; ">
+			<ul style="background-color: #2394E2;">
+				<li style="width: 120px; height: 30px; text-align:center;background-color: #2394E2; font-size:14px; color:#FFFFFF; line-height: 30px; float: left; ">
+					<a href="?job=trans" style="color:#FFFFFF">文本翻译</a></li>
+				<li style="width: 120px; height: 30px; text-align:center;background-color: #FFFFFF;font-size:14px; color:#000000; line-height: 30px; float: left;"><a style="color:#000000" href="?job=file">文档翻译</a></li>
+			</ul>
+		</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>选择语言</td>
+					<td>
+					<div class="yuzhongselect">
+						<p onclick="showSelect('startlanulselect')" id='start_lan_p'>请选择</p>
+    	<ul class="ulselect" id="startlanulselect" style="z-index: 9">
+<!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<li id='' onclick="tc('start_lan_p','start_lan_$key','$rs','startlanulselect')">$rs</li>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div>
+						
+       <div style="display: none;">
+ <!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<input type="radio" value="$key"  name='FileForm[language]' id='start_lan_$key' />$rs<br>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	
+
+
+  </div>
+					</td>				
+				</tr>
+				<tr>
+					<td width="10%">文件上传</td>
+					<td width="90%">
+							<input type="file" name="FileForm[document]" id="FileForm_document" class="cont_text" style="width: 710px;" /><span style="font-size:12px; color:#666">请上传doc、docx、txt、pdf、rar、zip格式的文件。如有多个文件，请打包后上传，上传文件大小不能超过20M。</span>
+						
+					</td>				
+				</tr>
+				
+				
+				
+				<tr>
+					<td valign="top">手机号码</td>
+					<td>
+						<input type="text" name="FileForm[phone]" value="$tel" id="FileForm_phone" class="cont_text" />
+					</td>				
+				</tr>
+				<tr>
+					<td valign="top">邮箱</td>
+					<td>
+						<input type="text" name="FileForm[email]" value="$email" id="FileForm_email" class="cont_text" />
+					</td>				
+				</tr>
+			</table>
+			<div class="y_info_btns">
+			<input class="submit" type='submit' name='submit' id="submit" value='提 交'>
+       	    </div>
+		</div>
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	</div>
+</div>
+ </form>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

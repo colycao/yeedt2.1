@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>消息详情</title>
+<link rel="stylesheet" href="images/admin/style.css" type="text/css">
+</head>
+<bodys>
+<table width='100%' cellspacing='1' cellpadding='3' bgcolor='#CCCCCC' class="tablewidth">
+  
+    <tr class="head"> 
+      <td colspan="3" align="left"> 
+		查看消息详情
+      </td>
+    </tr>
+    <tr bgcolor='#FFFFFF'> 
+      <td width='19%'> 
+        <div align="left">消息内容：</div>
+      </td>
+      <td bgcolor='#FFFFFF' colspan="2"> 
+        $rsdb[msg]
+      </td>
+    </tr>
+    <tr bgcolor='#FFFFFF'> 
+      <td width='19%'> 
+        <div align="left">消息时间：</div>
+      </td>
+      <td bgcolor='#FFFFFF' colspan="2"> 
+        $posttime
+      </td>
+    </tr>
+    <tr bgcolor='#FFFFFF'> 
+      <td width='19%'> 
+        <div align="left">消息状态：</div>
+      </td>
+      <td bgcolor='#FFFFFF' colspan="2"> 
+<!--
+EOT;
+if($rsdb[is_read] =='0')
+{
+print <<<EOT
+-->
+	<span style="color: red">未读</span>
+ <!--
+EOT;
+}
+else
+{
+print <<<EOT
+-->
+	<span style="color:green;">已读</span>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+      </td>
+    </tr>
+   
+    <tr bgcolor='#FFFFFF'> 
+      <td width='19%'> 
+        <div align="left">翻译状态：</div>
+      </td>
+      <td bgcolor='#FFFFFF' colspan="2"> 
+<!--
+EOT;
+if($rsdb[type] =='finish')
+{
+print <<<EOT
+-->
+	<span style="color: green">翻译完成</span>
+ <!--
+EOT;
+}
+else if($rsdb[type] =='paid')
+{
+print <<<EOT
+-->
+	<span style="color:fuchsia;">已支付，翻译中</span>
+
+<!--
+EOT;
+}
+print <<<EOT
+-->
+      </td>
+    </tr>
+   
+   
+</table>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

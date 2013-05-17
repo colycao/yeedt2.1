@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/function.js"></script>
+<script src="js/dialog/artDialog.js?skin=default"></script>
+<script src="js/dialog/artDialog.iframeTools.js"></script>
+<script>
+function showConfirm(id)
+{
+	art.dialog({
+	    content: '已跳转至支付平台支付<br />支付成功后点击确认付款',
+	    icon: 'warning',
+	    noText: '遇到问题',
+	    yesText: '支付成功',
+	    padding:'5px',
+	    yesFn: function () {
+	    	window.location='trans.php?job=getPayStatus&id='+id;
+	        return true;
+	    },
+	    noFn: function () {
+	    	window.location='trans.php?job=getPayStatus&id='+id;
+	        return true;
+		},
+	});
+}
+
+</script>
+</head>
+
+<bodys>
+<form name="form1" method="post" action="$requestUrl/interface/webtrans" onsubmit="showConfirm('$row')" target="_parent _blank">
+<input type='hidden' name='content'		value='$strContent'>
+<input type='hidden' name='language'	value='$jsonArr[translateLanguages]'>
+<input type='hidden' name='qualityLevels'	value='$jsonArr[qualityLevels]'>
+<input type='hidden' name='yeedt_id'	value='$yeedt_id'>
+<input type='hidden' name='yeedt_key'	value='$yeedt_key'>
+<input type='hidden' name='proxy_key'	value='$proxy_key'>
+<input type='hidden' name='order_number' value='$order_id'>
+<input type='hidden' name='returnUrl'	value='$returnUrl/request.php'>
+<input type='hidden' name='proxyUrl'	value='$proxyUrl'>
+<input type='hidden' name='f_username'	value='$f_username'>
+<input type='hidden' name='f_address'	value='$f_address'>
+<input type='hidden' name='f_company'	value='$f_company'>
+<input type='hidden' name='f_title'	value='$f_title'>
+<input type='hidden' name='f_tel'	value='$f_tel'>
+<input type='hidden' name='f_email'	value='$f_email'>
+<input type='hidden' name='f_phone'	value='$f_phone'>
+<div class="y_list">
+	<div class="y_info_tra">
+		<div class="tit">翻译需求确认</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="20%">翻译内容编号：</td>
+					<td width="80%">$row</td>				
+				</tr>
+				
+				<tr>
+					<td width="20%">语言方向：</td>
+					<td width="80%">$dataInfo[translateLanguages]</td>				
+				</tr>
+				
+				<tr>
+					<td width="20%">翻译级别：</td>
+					<td width="80%">$dataInfo[qualityLevels]</td>				
+				</tr>
+				<tr>
+					<td width="20%">字数统计：</td>
+					<td width="80%">$dataInfo[wordCount] 字</td>				
+				</tr>
+				<tr>
+					<td width="20%">订单金额：</td>
+					<td width="80%">$dataInfo[price] 元
+        <input type='hidden' name='chae' value='$dataInfo[chae]'></td>			
+				</tr>
+				<tr>
+					<td width="20%">账户余额：</td>
+					<td width="80%">$dataInfo[balance] 元
+        <input type='hidden' name='chae' value='$dataInfo[chae]'></td>				
+				</tr>
+				<tr>
+					<td width="20%">需要支付或充值费用：</td>
+					<td width="80%">$dataInfo[chae] 元
+        <input type='hidden' name='chae' value='$dataInfo[chae]'></td>				
+				</tr>
+				<tr>
+					<td width="20%">预估提交时间：</td>
+					<td width="80%"> $dataInfo[posttime]</td>				
+				</tr>
+				
+				<tr>
+					<td width="20%"></td>
+					<td width="80%">
+					<div class="y_info_btns" style="text-align:left;">
+					<input class='submit' type='button' onclick="window.location='trans.php'" name='button' value='放弃翻译'>
+        			<input class='submit' type='submit' name='Submit' value='确认翻译'>
+					</div>
+					</td>				
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+ </form>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

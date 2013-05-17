@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+<script src="js/jquery.1.4.2-min.js"></script>
+<script src="js/dialog/artDialog.js?skin=default"></script>
+<script src="js/dialog/artDialog.iframeTools.js"></script>
+<script>
+
+function hover(id){
+	
+	if(document.getElementById(id).style.display=='none')
+	{
+		document.getElementById(id).style.display='block';
+	}
+	else
+	{
+		document.getElementById(id).style.display='none';
+	}		
+}
+
+function showConfirm(id)
+{
+	art.dialog({
+	    content: '已跳转至支付平台支付<br />支付成功后点击确认付款',
+	    icon: 'warning',
+	    noText: '遇到问题',
+	    yesText: '支付成功',
+	    yesFn: function () {
+	    	window.location='trans.php?job=getPayStatus&id='+id;
+	        return true;
+	    },
+		noFn: function () {
+			window.location='trans.php?job=getPayStatus&id='+id;
+			return true;
+		},
+	});
+}
+
+</script>
+<!--
+EOT;
+if($msgRs['count']>0)
+{
+print <<<EOT
+-->
+<script>
+function showMsg()
+{
+	art.dialog({
+	    id: 'msg',
+	    title: '消息提示',
+	    content: '您有<span style="color:red;">$msgRs[count]条</span>翻译消息未读<br ><a href="msg.php?is_read=0">点击此处查看</a>',
+	    width: 170,
+	    icon: 'warning',
+	    padding:'0px',
+	    height: 100,
+	    left: '100%',
+	    top: '100%',
+	    fixed: true,
+	    drag: false,
+	    resize: false
+	});
+}
+
+
+</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</head>
+
+<body onload="showMsg()">
+
+<div class="y_list">
+	<div class="y_list_cont">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <thead>
+			  <tr>
+			  <th>序号</th>
+			    <th width="50%">中文主题</th>
+			    
+			    <th>翻译进度</th>
+			    <th>价格</th>
+			    <th>操作</th>		    
+			  </tr>
+		  </thead>
+		  <tbody>
+<!--
+EOT;
+foreach($newsRs as $rs)
+{
+$rs[title] = $rs[title] ? $rs[title] : (mb_strlen($rs[content]) > 50 ? mb_substr(strip_tags($rs[content]), 0, 30, "utf-8") . "......" : $rs[content]);
+print <<<EOT
+-->		  			  
+			  <tr>
+			   <td>$rs[id]</td>
+			    <td align="left" class="tda">
+			    	<div style="position: relative;">
+<!--
+EOT;
+if($rs[author] =='file')
+{
+print <<<EOT
+-->	
+		<a href="?job=read&id=$rs[id]" onmouseout="hover('ahover$rs[id]')" onmouseover="hover('ahover$rs[id]')" class='ahover'>$rs[title]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="$requestUrl/user/download?orderId=$rs[yeedt_order_id]" target="_blank">下载原文</a>
+<!--
+EOT;
+}
+else
+{
+print <<<EOT
+-->
+		<a href="?job=read&id=$rs[id]" onmouseout="hover('ahover$rs[id]')" onmouseover="hover('ahover$rs[id]')" >$rs[title]</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->			    
+						<div id='ahover$rs[id]' style="border: 1px solid #e5e5e5;display: none;background-color: #FEF4E2; padding:20px;line-height:22px; position: absolute; top:20px; left:3px; z-index:99;">
+					
+						
+						语言方向：$rs[languages]<br />
+						翻译级别：$rs[qualityLevels]<br />
+						字数：$rs[wordCount] 字<br />
+						翻译费用：$rs[price] 元<br />
+						</div>
+					</div>
+			    </td>
+			   
+			    <td>
+<!--
+EOT;
+if($rs[status] =='finish')
+{
+print <<<EOT
+-->
+	<span style="color: green">翻译完成</span>
+ <!--
+EOT;
+}
+else if($rs[status] =='paid')
+{
+print <<<EOT
+-->
+	<span style="color:fuchsia;">已支付，翻译中</span>
+<!--
+EOT;
+}
+else if($rs[status] =='translating')
+{
+print <<<EOT
+-->
+	<span style="color:fuchsia;">翻译中</span>
+<!--
+EOT;
+}
+else
+{
+	if($rs[author] =='file')
+	{
+print <<<EOT
+-->	
+		<span style="color:red;">未支付，<a href="?job=filePay&id=$rs[id]" target="_parent _blank" onclick="showConfirm('$rs[id]')">点击支付</a></span>
+<!--
+EOT;
+	}
+	else
+	{
+print <<<EOT
+-->
+
+		<span style="color:red;">未支付，<a href="?job=pay&id=$rs[id]" target="_parent _blank" onclick="showConfirm('$rs[id]')">点击支付</a></span>
+<!--
+EOT;
+	}
+}
+print <<<EOT
+-->			    
+			    </td>
+			    <td>$rs[price] 元</td>
+			    <td><div class="btns"><a href="?job=read&id=$rs[id]" class="btn_sel">查看</a><a href="?job=delete&id=$rs[id]" onclick="return confirm('删除数据无法恢复！')" class="btn_del">删除</a></div></td>
+			  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->			   
+		  </tbody>
+		</table>
+		<div class="y_list_page">
+			$pagehtml
+		</div>
+	</div>
+</div>
+
+  
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->
