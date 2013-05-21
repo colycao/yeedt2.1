@@ -4,15 +4,60 @@ require_once 'global.php';
 switch ($job)
 {
 	case 'trans':
-			$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
-			$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
-			
+			//$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
+			//$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
+			$qualityLevels = array(
+				'1' => '标准',
+				'2' => '专业',
+				'3' => '母语',
+			);
+			$translateLanguages = array(
+				"ch_en" => "中文->英文",
+				"ch_ja" => "中文->日文",
+				"ch_fr" => "中文->法文",
+				"ch_de" => "中文->德文",
+				"ch_ru" => "中文->俄文",
+				"ch_kr" => "中文->韩文",
+				"ch_es" => "中文->西班牙语",
+				"ch_ar" => "中文->阿拉伯语",
+				"en_ch" => "英文->中文",
+				"ja_ch" => "日文->中文",
+				"fr_ch" => "法文->中文",
+				"de_ch" => "德文->中文",
+				"ru_ch" => "俄文->中文",
+				"kr_ch" => "韩文->中文",
+				"es_ch" => "西班牙语->中文",
+				"ar_ch" => "阿拉伯语->中文"
+			);
 			include 'tpl/trans/trans.htm';
 		break;
 	
 	case 'file':
-			$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
-			$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
+			//$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
+			//$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
+			$qualityLevels = array(
+				'1' => '标准',
+				'2' => '专业',
+				'3' => '母语',
+			);
+			$translateLanguages = array(
+				"ch_en" => "中文->英文",
+				"ch_ja" => "中文->日文",
+				"ch_fr" => "中文->法文",
+				"ch_de" => "中文->德文",
+				"ch_ru" => "中文->俄文",
+				"ch_kr" => "中文->韩文",
+				"ch_es" => "中文->西班牙语",
+				"ch_ar" => "中文->阿拉伯语",
+				"en_ch" => "英文->中文",
+				"ja_ch" => "日文->中文",
+				"fr_ch" => "法文->中文",
+				"de_ch" => "德文->中文",
+				"ru_ch" => "俄文->中文",
+				"kr_ch" => "韩文->中文",
+				"es_ch" => "西班牙语->中文",
+				"ar_ch" => "阿拉伯语->中文"
+			);
 			
 			include 'tpl/trans/file.htm';
 		break;
