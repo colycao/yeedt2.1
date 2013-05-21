@@ -42,7 +42,7 @@ if($_GET['msg'] == 'confirm')
 }
 else if($_GET['msg'] == 'ok')
 {
-	echo "<script>alert('上传成功，正在为您统计字数');window.location='trans.php';</script>";
+	echo "<script>alert('上传成功，客服正在为您统计字数和价格，工作时间10分钟内响应。');window.location='trans.php';</script>";
 }
 else if($_GET['msg'] == 'paid')
 {

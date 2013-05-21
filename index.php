@@ -6,5 +6,5 @@ if(!file_exists('./inc/install.lock')){
 }
 	
 
-include 'tpl/index.htm';
+include 'tpl/trans/trans.htm';
 ?>

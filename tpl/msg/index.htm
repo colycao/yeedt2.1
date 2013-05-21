@@ -5,22 +5,36 @@ print <<<EOT
 -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>系统消息</title>
 <link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
 <script src="js/function.js"></script>
 </head>
 
-<bodys>
+<body>
+<div class="y_nav">
+	<ul>
+		<a href="trans.php?job=trans" target="_parent"><li class="nav_1 topNav"></li></a>
+		<a href="trans.php" target="_parent"><li class="nav_2 topNav"></li></a>
+		<a href="member.php" target="_parent"><li class="nav_3 topNav"></li></a>
+		<a href="help.php" target="_parent"><li class="nav_4 topNav"></li></a>
+		<a href="msg.php" target="_parent"><li class="nav_5 topNav selected"></li></a>
+	</ul>
+	<div style='width:100%px;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
+	<iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600"> 
+	</iframe> 
+	</div>
+</div>
 <div class="y_list">
 	<div class="y_list_cont">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		  <thead>
 			  <tr>
-			    <th>序号</th>
+			    <!-- <th>&nbsp;订单号</th> -->
+				<th>&nbsp;</th>
 			    <th>消息内容</th>
 			    <th>消息时间</th>
 			    <th>消息状态</th>
-			    <th>翻译状态</th>
+			    <th></th>
 			    <th>操作</th>		    
 			  </tr>
 		  </thead>
@@ -32,7 +46,8 @@ foreach($rsdb as $rs)
 print <<<EOT
 -->		  			  
 			  <tr>
-			    <td>$rs[msg_id]</td>
+			    <!-- <td>$rs[msg_id]</td> -->
+				<td>&nbsp;</td>
 			    <td align="left">$rs[msg]</td>
 			    <td>$rs[posttime]</td>
 			    <td>
@@ -42,7 +57,7 @@ if($rs[is_read] =='0')
 {
 print <<<EOT
 -->
-	<span style="color: red">未读，<a href="?job=is_read&msg_id=$rs[msg_id]">点击设置已读</a></span>
+	<span style="color: red"><a href="?job=is_read&msg_id=$rs[msg_id]">标记为已读</a></span>
  <!--
 EOT;
 }
@@ -58,27 +73,7 @@ print <<<EOT
 -->
 				</td>
 			    <td>
-<!--
-EOT;
-if($rs[type] =='finish')
-{
-print <<<EOT
--->
-	<span style="color: green">翻译完成</span>
- <!--
-EOT;
-}
-else if($rs[type] =='paid')
-{
-print <<<EOT
--->
-	<span style="color:fuchsia;">已支付，翻译中</span>
 
-<!--
-EOT;
-}
-print <<<EOT
--->
 </td>
 			    <td><div class="btns"><a href="?job=delete&msg_id=$rs[msg_id]" onclick="return confirm('删除数据无法恢复！')" class="btn_del">删除</a></div></td>
 			  </tr>

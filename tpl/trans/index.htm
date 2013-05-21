@@ -5,8 +5,9 @@ print <<<EOT
 -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>翻译管理</title>
 <link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+
 <script src="js/jquery.1.4.2-min.js"></script>
 <script src="js/dialog/artDialog.js?skin=default"></script>
 <script src="js/dialog/artDialog.iframeTools.js"></script>
@@ -78,6 +79,19 @@ print <<<EOT
 </head>
 
 <body onload="showMsg()">
+<div class="y_nav">
+	<ul>
+		<a href="trans.php?job=trans" target="_parent"><li class="nav_1 topNav"></li></a>
+		<a href="trans.php" target="_parent"><li class="nav_2 topNav selected"></li></a>
+		<a href="member.php" target="_parent"><li class="nav_3 topNav"></li></a>
+		<a href="help.php" target="_parent"><li class="nav_4 topNav"></li></a>
+		<a href="msg.php" target="_parent"><li class="nav_5 topNav"></li></a>
+	</ul>
+	<div style='width:100%px;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
+	<iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600"> 
+	</iframe> 
+	</div>
+</div>
 
 <div class="y_list">
 	<div class="y_list_cont">
@@ -97,7 +111,7 @@ print <<<EOT
 EOT;
 foreach($newsRs as $rs)
 {
-$rs[title] = $rs[title] ? $rs[title] : (mb_strlen($rs[content]) > 50 ? mb_substr(strip_tags($rs[content]), 0, 30, "utf-8") . "......" : $rs[content]);
+$rs[title] = $rs[title] ? $rs[title] : (mb_strlen($rs[content]) > 20 ? mb_substr(strip_tags($rs[content]), 0, 20, "utf-8") . "......" : $rs[content]);
 print <<<EOT
 -->		  			  
 			  <tr>
@@ -124,7 +138,7 @@ EOT;
 }
 print <<<EOT
 -->			    
-						<div id='ahover$rs[id]' style="border: 1px solid #e5e5e5;display: none;background-color: #FEF4E2; padding:20px;line-height:22px; position: absolute; top:20px; left:3px; z-index:99;">
+						<div id='ahover$rs[id]' style="border: 1px solid #e5e5e5;display: none;background-color: #FFFFCC; padding:20px;line-height:22px; position: absolute; top:20px; left:3px; z-index:99;">
 					
 						
 						语言方向：$rs[languages]<br />
@@ -186,7 +200,20 @@ print <<<EOT
 -->			    
 			    </td>
 			    <td>$rs[price] 元</td>
-			    <td><div class="btns"><a href="?job=read&id=$rs[id]" class="btn_sel">查看</a><a href="?job=delete&id=$rs[id]" onclick="return confirm('删除数据无法恢复！')" class="btn_del">删除</a></div></td>
+			    <td><div class="btns"><a href="?job=read&id=$rs[id]" class="btn_sel">查看</a>
+<!--
+EOT;
+if($rs[status] == 'new')
+{
+print <<<EOT
+-->
+				<a href="?job=delete&id=$rs[id]" onclick="return confirm('删除数据无法恢复！')" class="btn_del">删除</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->					
+				</div></td>
 			  </tr>
 <!--
 EOT;
