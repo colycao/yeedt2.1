@@ -7,6 +7,7 @@ print <<<EOT
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>文档翻译下单</title>
 <link rel="stylesheet" href="css/yeedt_index.css" type="text/css">
+
 <script src="js/function.js"></script>
 <script>
 function check()
@@ -46,128 +47,119 @@ function tc(start_lan_p,start_lan_k,v,ulid)
 
 
 </script>
+
+
 </head>
 
 <body>
 <div class="y_nav">
-  <ul>
-    <a href="trans.php?job=trans" target="_parent">
-    <li class="nav_1 topNav selected"></li>
-    </a> <a href="trans.php" target="_parent">
-    <li class="nav_2 topNav"></li>
-    </a> <a href="member.php" target="_parent">
-    <li class="nav_3 topNav"></li>
-    </a> <a href="help.php" target="_parent">
-    <li class="nav_4 topNav"></li>
-    </a> <a href="msg.php" target="_parent">
-    <li class="nav_5 topNav"></li>
-    </a>
+	<ul>
+		<a href="trans.php?job=trans" target="_parent"><li class="nav_1 topNav selected"></li></a>
+	  <a href="trans.php" target="_parent"><li class="nav_2 topNav"></li></a>
+		<a href="member.php" target="_parent"><li class="nav_3 topNav"></li></a>
+		<a href="help.php" target="_parent"><li class="nav_4 topNav"></li></a>
+		<a href="msg.php" target="_parent"><li class="nav_5 topNav"></li></a>
   </ul>
-  <div style='width:100%px;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
-    <iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600">
-    </iframe>
-  </div>
+	<div style='width:100%px;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
+	<iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600"> 
+	</iframe> 
+	</div>
 </div>
 <form name="form1" onsubmit="return check();" method="post" action="$requestUrl/file" enctype="multipart/form-data">
-  <input type="hidden"  name="FileForm[document_form_source]" value="webTrans" />
-  <input type="hidden"  name="FileForm[yeedt_id]" value="$yeedt_id" />
-  <input type="hidden"  name="FileForm[yeedt_key]" value="$yeedt_key" />
-  <input type="hidden"  name="FileForm[agents_callback_url]" value="$proxyUrl" />
-  <input type="hidden"  name="FileForm[member_callback_url]" value="$returnUrl/fileRequest.php" />
-  <div class="y_list">
-    <div class="y_info_tra">
-      <div style="background-color: #2394E2;height: 35px; ">
-        <ul style="background-color: #2394E2;">
-          <li style="width: 120px; height: 35px; text-align:center;background-color: #2394E2; font-size:14px; color:#FFFFFF; line-height: 35px; float: left; "> <a href="trans.php?job=trans" style="color:#FFFFFF">文本翻译</a></li>
-          <li style="width: 120px; height: 35px; text-align:center;background-color: #FFFFFF;font-size:14px; color:#000000; line-height: 35px; float: left;"><a style="color:#000000" href="trans.php?job=file">文档翻译</a></li>
-        </ul>
-      </div>
-      <div class="cont">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td>选择语言 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><div class="yuzhongselect">
-                <p id="start_lan_p" onclick="showSelect('startlanulselect')">请选择</p>
-                <ul style="z-index: 9; display: none;" id="startlanulselect" class="ulselect u490">
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_en','中文-&gt;英文','startlanulselect')" id="">中文-&gt;英文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ja','中文-&gt;日文','startlanulselect')" id="">中文-&gt;日文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_fr','中文-&gt;法文','startlanulselect')" id="">中文-&gt;法文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_de','中文-&gt;德文','startlanulselect')" id="">中文-&gt;德文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ru','中文-&gt;俄文','startlanulselect')" id="">中文-&gt;俄文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_kr','中文-&gt;韩文','startlanulselect')" id="">中文-&gt;韩文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_es','中文-&gt;西班牙语','startlanulselect')" id="">中文-&gt;西班牙语</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ar','中文-&gt;阿拉伯语','startlanulselect')" id="">中文-&gt;阿拉伯语</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_en_ch','英文-&gt;中文','startlanulselect')" id="">英文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ja_ch','日文-&gt;中文','startlanulselect')" id="">日文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_fr_ch','法文-&gt;中文','startlanulselect')" id="">法文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_de_ch','德文-&gt;中文','startlanulselect')" id="">德文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ru_ch','俄文-&gt;中文','startlanulselect')" id="">俄文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_kr_ch','韩文-&gt;中文','startlanulselect')" id="">韩文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_es_ch','西班牙语-&gt;中文','startlanulselect')" id="">西班牙语-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ar_ch','阿拉伯语-&gt;中文','startlanulselect')" id="">阿拉伯语-&gt;中文</li>
-                  <!---->
-                  
-                </ul>
-              </div>
-              <div style="display: none;"> 
-                <!--
+<input type="hidden"  name="FileForm[document_form_source]" value="webTrans" />
+<input type="hidden"  name="FileForm[yeedt_id]" value="$yeedt_id" />
+<input type="hidden"  name="FileForm[yeedt_key]" value="$yeedt_key" />
+<input type="hidden"  name="FileForm[agents_callback_url]" value="$proxyUrl" />
+<input type="hidden"  name="FileForm[member_callback_url]" value="$returnUrl/fileRequest.php" />
+<div class="y_list">
+	<div class="y_info_tra">
+		<div style="background-color: #2394E2;height: 35px; ">
+			<ul style="background-color: #2394E2;">
+				<li style="width: 120px; height: 35px; text-align:center;background-color: #2394E2; font-size:14px; color:#FFFFFF; line-height: 35px; float: left; ">
+					<a href="trans.php?job=trans" style="color:#FFFFFF">文本翻译</a></li>
+				<li style="width: 120px; height: 35px; text-align:center;background-color: #FFFFFF;font-size:14px; color:#000000; line-height: 35px; float: left;"><a style="color:#000000" href="trans.php?job=file">文档翻译</a></li>
+			</ul>
+		</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>选择语言 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td>
+					<div class="yuzhongselect">
+						<p onclick="showSelect('startlanulselect')" id='start_lan_p'>请选择</p>
+    	<ul class="ulselect u490" id="startlanulselect" style="z-index: 9">
+<!--
 EOT;
 foreach($translateLanguages as $key=>$rs)
 {
 print <<<EOT
 -->
-                <input type="radio" value="$key"  name='FileForm[language]' id='start_lan_$key' />
-                $rs<br>
-                <!--
+    		<li id='' onclick="tc('start_lan_p','start_lan_$key','$rs','startlanulselect')">$rs</li>
+<!--
 EOT;
 } 
 print <<<EOT
---> 
-                
-              </div></td>
-          </tr>
-          <tr>
-            <td width="10%">文件上传 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td width="90%"><input type="file" name="FileForm[document]" id="FileForm_document" class="cont_text" style="width:400px;" />
-              <br />
-              <span style="font-size:12px; color:#666">请上传doc、docx、txt、pdf、rar、zip格式的文件。如有多个文件，请打包后上传，上传文件大小不能超过20M。</span></td>
-          </tr>
-          <tr>
-            <td valign="top">手机号码 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><input type="text" name="FileForm[phone]" value="$tel" id="FileForm_phone" class="cont_text" placeholder="可获得免费翻译状态短信提醒" style="width:700px;" /></td>
-          </tr>
-          <tr>
-            <td valign="top">邮箱 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><input type="text" name="FileForm[email]" value="$email" id="FileForm_email" class="cont_text" placeholder="用于接收翻译结果" style="width:700px;" /></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td style="font-size:12px; color:#666">友情提示：文档订单客服未与您确认字数价格之前，订单不记录。工作日客服会在10分钟内处理。</td>
-          </tr>
-        </table>
-        <div class="y_info_btns">
-          <input class="submit" type='submit' name='submit' id="submit" value='提 交'>
-        </div>
-      </div>
-    </div>
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div>
+						
+       <div style="display: none;">
+ <!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<input type="radio" value="$key"  name='FileForm[language]' id='start_lan_$key' />$rs<br>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	
+
+
   </div>
-</form>
+					</td>				
+				</tr>
+				<tr>
+					<td width="10%">文件上传 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td width="90%">
+							<input type="file" name="FileForm[document]" id="FileForm_document" class="cont_text" style="width:400px;" /><br />
+<span style="font-size:12px; color:#666">请上传doc、docx、txt、pdf、rar、zip格式的文件。如有多个文件，请打包后上传，上传文件大小不能超过20M。</span>
+						
+					</td>				
+				</tr>
+				
+				
+				
+				<tr>
+					<td valign="top">手机号码 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td>
+						<input type="text" name="FileForm[phone]" value="$tel" id="FileForm_phone" class="cont_text" placeholder="可获得免费翻译状态短信提醒" style="width:700px;" />
+					</td>				
+				</tr>
+				<tr>
+					<td valign="top">邮箱  <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td>
+						<input type="text" name="FileForm[email]" value="$email" id="FileForm_email" class="cont_text" placeholder="用于接收翻译结果" style="width:700px;" />
+					</td>				
+				</tr>
+                <tr>
+                <td></td>  <td style="font-size:12px; color:#666">友情提示：文档订单客服未与您确认字数价格之前，订单不记录。工作日客服会在10分钟内处理。</td>
+                </tr>
+			</table>
+			<div class="y_info_btns">
+			<input class="submit" type='submit' name='submit' id="submit" value='提 交'>
+       	    </div>
+		</div>
+		
+	</div>
+</div>
+ </form>
+
 </body>
 </html>
 <!--

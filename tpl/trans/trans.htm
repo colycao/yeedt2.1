@@ -60,147 +60,138 @@ function tc(start_lan_p,start_lan_k,v,ulid)
 
 <body>
 <div class="y_nav">
-  <ul>
-    <a href="trans.php?job=trans" target="_parent">
-    <li class="nav_1 topNav selected"></li>
-    </a> <a href="trans.php" target="_parent">
-    <li class="nav_2 topNav"></li>
-    </a> <a href="member.php" target="_parent">
-    <li class="nav_3 topNav"></li>
-    </a> <a href="help.php" target="_parent">
-    <li class="nav_4 topNav"></li>
-    </a> <a href="msg.php" target="_parent">
-    <li class="nav_5 topNav"></li>
-    </a>
-  </ul>
-  <div style='width:100%;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
-    <iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600">
-    </iframe>
-  </div>
+	<ul>
+		<a href="trans.php?job=trans" target="_parent"><li class="nav_1 topNav selected"></li></a>
+		<a href="trans.php" target="_parent"><li class="nav_2 topNav"></li></a>
+		<a href="member.php" target="_parent"><li class="nav_3 topNav"></li></a>
+		<a href="help.php" target="_parent"><li class="nav_4 topNav"></li></a>
+		<a href="msg.php" target="_parent"><li class="nav_5 topNav"></li></a>
+	</ul>
+	<div style='width:100%;height:40px;color:#FF0000; font-size:16px;margin:5px auto 0px;text-align:center;overflow:hidden; '>
+	<iframe src ="http://www.yeedt.com/p/aboutus.htm" frameborder="0" marginheight="0" marginwidth="0" height='40' frameborder="0" scrolling="auto" id="ifm" name="ifm"  width="600"> 
+	</iframe> 
+	</div>
 </div>
 <form name="form1" onsubmit="return check();" method="post" action="?job=confirm">
-  <div class="y_list">
-    <div class="y_info_tra">
-      <div style="background-color: #2394E2;height: 35px; ">
-        <ul style="background-color: #2394E2;">
-          <li style="width: 120px; height: 35px; text-align:center;background-color: #FFFFFF; font-size:14px; ; line-height: 35px; float: left; "> <a href="trans.php?job=trans" style="color:#000000">文本翻译</a></li>
-          <li style="width: 120px; height: 35px; text-align:center;background-color: #2394E2;font-size:14px; ; line-height: 35px; float: left;"><a style="color:#FFFFFF" href="trans.php?job=file">文档翻译</a></li>
-        </ul>
-      </div>
-      <div class="cont">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td>选择语言 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><div class="yuzhongselect">
-                <p id="start_lan_p" onclick="showSelect('startlanulselect')">请选择</p>
-                <ul class="ulselect u490" id="startlanulselect" style="z-index: 9">
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_en','中文-&gt;英文','startlanulselect')" id="">中文-&gt;英文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ja','中文-&gt;日文','startlanulselect')" id="">中文-&gt;日文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_fr','中文-&gt;法文','startlanulselect')" id="">中文-&gt;法文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_de','中文-&gt;德文','startlanulselect')" id="">中文-&gt;德文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ru','中文-&gt;俄文','startlanulselect')" id="">中文-&gt;俄文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_kr','中文-&gt;韩文','startlanulselect')" id="">中文-&gt;韩文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_es','中文-&gt;西班牙语','startlanulselect')" id="">中文-&gt;西班牙语</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ch_ar','中文-&gt;阿拉伯语','startlanulselect')" id="">中文-&gt;阿拉伯语</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_en_ch','英文-&gt;中文','startlanulselect')" id="">英文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ja_ch','日文-&gt;中文','startlanulselect')" id="">日文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_fr_ch','法文-&gt;中文','startlanulselect')" id="">法文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_de_ch','德文-&gt;中文','startlanulselect')" id="">德文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ru_ch','俄文-&gt;中文','startlanulselect')" id="">俄文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_kr_ch','韩文-&gt;中文','startlanulselect')" id="">韩文-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_es_ch','西班牙语-&gt;中文','startlanulselect')" id="">西班牙语-&gt;中文</li>
-                  <!---->
-                  <li onclick="tc('start_lan_p','start_lan_ar_ch','阿拉伯语-&gt;中文','startlanulselect')" id="">阿拉伯语-&gt;中文</li>
-                  <!---->
-                  
-                </ul>
-              </div>
-              <div style="display: none;"> 
-                <!--
+<div class="y_list">
+	<div class="y_info_tra">
+		<div style="background-color: #2394E2;height: 35px; ">
+			<ul style="background-color: #2394E2;">
+				<li style="width: 120px; height: 35px; text-align:center;background-color: #FFFFFF; font-size:14px; ; line-height: 35px; float: left; ">
+					<a href="trans.php?job=trans" style="color:#000000">文本翻译</a></li>
+				<li style="width: 120px; height: 35px; text-align:center;background-color: #2394E2;font-size:14px; ; line-height: 35px; float: left;"><a style="color:#FFFFFF" href="trans.php?job=file">文档翻译</a></li>
+			</ul>
+		</div>
+		<div class="cont">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>选择语言 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td>
+					<div class="yuzhongselect">
+						<p onclick="showSelect('startlanulselect')" id='start_lan_p'>请选择</p>
+    	<ul class="ulselect u490" id="startlanulselect" style="z-index: 9">
+<!--
 EOT;
 foreach($translateLanguages as $key=>$rs)
 {
 print <<<EOT
 -->
-                <input type="radio" value="$key"  name='translateLanguages' id='start_lan_$key' />
-                $rs<br>
-                <!--
+    		<li id='' onclick="tc('start_lan_p','start_lan_$key','$rs','startlanulselect')">$rs</li>
+<!--
 EOT;
 } 
 print <<<EOT
---> 
-                
-                <!--
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div>
+						
+       <div style="display: none;">
+ <!--
+EOT;
+foreach($translateLanguages as $key=>$rs)
+{
+print <<<EOT
+-->
+    		<input type="radio" value="$key"  name='translateLanguages' id='start_lan_$key' />$rs<br>
+<!--
+EOT;
+} 
+print <<<EOT
+-->	
+
+<!--
+EOT;
+foreach($qualityLevels as $key=>$rs)
+{
+print <<<EOT
+-->        	
+        	<input type="radio" value="$key"  name='qualityLevels' id='qualityLevelsselect_$key' />$rs
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+  </div>
+					</td>				
+				</tr>
+				<tr>
+					<td>翻译级别 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td>
+					
+					<div class="yuzhongselect" style="float: left;">
+						<p onclick="showSelect('qualityLevelsselect')" id='qualityLevelsselect_p'>请选择</p>
+    	<ul class="ulselect u170" id="qualityLevelsselect" style="z-index: 9">
+        
+<!--
 EOT;
 foreach($qualityLevels as $key=>$rs)
 {
 print <<<EOT
 -->
-                <input type="radio" value="$key"  name='qualityLevels' id='qualityLevelsselect_$key' />
-                $rs 
-                <!--
+    		<li id='' onclick="tc('qualityLevelsselect_p','qualityLevelsselect_$key','$rs','qualityLevelsselect')">$rs</li>
+<!--
 EOT;
-}
+} 
 print <<<EOT
---> 
-                
-              </div></td>
-          </tr>
-          <tr>
-            <td>翻译级别 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><div class="yuzhongselect" style="float: left;">
-                <p id="qualityLevelsselect_p" onclick="showSelect('qualityLevelsselect')">请选择</p>
-                <ul style="z-index: 9; display: none;" id="qualityLevelsselect" class="ulselect u170">
-                  
-                  <!---->
-                  <li onclick="tc('qualityLevelsselect_p','qualityLevelsselect_1','标准','qualityLevelsselect')" id="">标准</li>
-                  <!---->
-                  <li onclick="tc('qualityLevelsselect_p','qualityLevelsselect_2','专业','qualityLevelsselect')" id="">专业</li>
-                  <!---->
-                  <li onclick="tc('qualityLevelsselect_p','qualityLevelsselect_3','母语','qualityLevelsselect')" id="">母语</li>
-                  <!---->
-                  
-                </ul>
-              </div>
-              <div style="float: left; line-height: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help.php">翻译级别说明</a></div></td>
-          </tr>
-          <tr>
-            <td width="10%">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</td>
-            <td width="90%"><input type="text" name="title" id="title" class="cont_text"  value="标题可不填" onfocus="if(this.value=='标题可不填'){this.value='';}"  onblur="if(this.value==''){this.value='标题可不填';}"  style="width:700px;" /></td>
-          </tr>
-          <tr>
-            <td valign="top">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
-            <td><textarea  style="width:710px; height:200px; border:solid 1px #e0e0e0; background:#f2f2f2;  " name="content" id="content" onKeyDown="checknum()" onKeyUp="checknum()"></textarea>
-              <p>翻译内容最多不超过3000字,超过3000字请将内容粘贴至记事本或word，通过 <a href="trans.php?job=file" style="color:#F00">上传文档进行下单。</a></p></td>
-          </tr>
-        </table>
-        <div class="y_info_btns">
-          <input class="submit" type='submit' name='Submit' id="submit" value='提 交'>
-          <input type='hidden' name='id' value='$id'>
-        </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-    </div>
-  </div>
-</form>
+-->	  
+
+    	
+  		
+    	</ul>
+    	</div> <div style="float: left; line-height: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="help.php">翻译级别说明</a></div>
+						
+					</td>				
+				</tr>
+				<tr>
+					<td width="10%">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</td>
+					<td width="90%">
+							<input type="text" name="title" id="title" class="cont_text"  value="标题可不填" onfocus="if(this.value=='标题可不填'){this.value='';}"  onblur="if(this.value==''){this.value='标题可不填';}"  style="width:700px;" />
+						
+					</td>				
+				</tr>
+				<tr>
+					<td valign="top">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容 <span style="color:#F00;font-size:16px;line-height:30px">*</span></td>
+					<td><textarea  style="width:710px; height:200px; border:solid 1px #e0e0e0; background:#f2f2f2;  " name="content" id="content" onKeyDown="checknum()" onKeyUp="checknum()"></textarea><p>翻译内容最多不超过3000字,超过3000字请将内容粘贴至记事本或word，通过 <a href="trans.php?job=file" style="color:#F00">上传文档进行下单。</a></p>
+						
+					           
+					            </td>
+									
+				</tr>
+				
+			</table>
+			<div class="y_info_btns">
+			<input class="submit" type='submit' name='Submit' id="submit" value='提 交'>
+       	    <input type='hidden' name='id' value='$id'></div>
+		</div>
+		<br /><br /><br /><br />
+	</div>
+</div>
+ </form>
+
 </body>
 </html>
 <!--

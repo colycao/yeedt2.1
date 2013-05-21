@@ -4,15 +4,15 @@ require_once 'global.php';
 switch ($job)
 {
 	case 'trans':
-			//$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
-			//$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
+			$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
+			$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
 			
 			include 'tpl/trans/trans.htm';
 		break;
 	
 	case 'file':
-			//$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
-			//$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
+			$qualityLevels = json_decode(PostHttpRequest($requestUrl."/interface/getQualityLevels"),true);
+			$translateLanguages = json_decode(PostHttpRequest($requestUrl."/interface/getTranslateLanguages"),true);
 			
 			include 'tpl/trans/file.htm';
 		break;
